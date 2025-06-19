@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil - TRIBO</title>
+  <link rel="stylesheet" href="/css/perfil.css" />
+</head>
+<body>
+  <header class="navbar" role="banner">
+    <div class="logo" aria-label="Logo da rede social">TRIBO</div>
+    <button id="theme-toggle" aria-label="Alternar tema">🌙</button>
+  </header>
+
+  <aside class="sidebar" role="complementary">
+    <section class="profile">
+      <img src="/img/pele linda como a luz do sol.jpeg" alt="Foto de perfil do usuário" />
+      <h1 id="nome-usuario">_melissa</h1>
+      <p id="bio">tec desenvolvimento de sistemas.</p>
+      <button id="editar-bio" aria-label="Editar biografia">Editar Bio</button>
+    </section>
+    <nav aria-label="Menu do usuário">
+      <a href="#" class="ativo">Perfil</a>
+      <a href="#">Postagens</a>
+      <a href="#">Configurações</a>
+      <a href="/index.html">Sair</a>
+    </nav>
+  </aside>
+
+  <main class="feed" role="main">
+    <section class="galeria-postagens" aria-label="Galeria de postagens do usuário">
+      <!-- Posts gerados via JS ou estáticos -->
+      <article class="post">
+        <img src="/img/Colosseum Sunset View.jpeg" alt="Descrição da imagem do post 1" />
+        <div class="post-content">
+          <h3>coliseu ao pôr do sol</h3>
+          <p>lindo por do sol no coliseu</p>
+        </div>
+      </article>
+      <article class="post">
+        <img src="/img/Premium Photo _ View of Paris, France.jpeg" alt="Descrição da imagem do post 2" />
+        <div class="post-content">
+          <h3>Paris</h3>
+          <p>linda tarde em Paris</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Modal para imagem grande -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <button id="fechar-modal" aria-label="Fechar imagem">×</button>
+    <img id="modal-img" alt="Imagem ampliada" />
+  </div>
+
+  <script src="/js/perfil.js"></script>
+</body>
+</html>

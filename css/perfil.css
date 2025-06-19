@@ -1,0 +1,244 @@
+:root {
+  --fundo: #101010;
+  --branco: #fff;
+  --cinza-claro: #b0b0b0;
+  --verde-menta: #98ff98;
+  --verde-escuro: #76c7c0;
+  --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --transicao-suave: 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--fundo);
+  color: var(--branco);
+  font-family: var(--fonte-principal);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background-color: var(--fundo);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--verde-escuro);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--verde-menta);
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--verde-menta);
+  cursor: pointer;
+  transition: color var(--transicao-suave);
+}
+
+#theme-toggle:hover {
+  color: var(--verde-escuro);
+}
+
+.sidebar {
+  background-color: var(--fundo);
+  width: 280px;
+  padding: 3rem 2rem 2rem;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--verde-menta);
+  margin-bottom: 1rem;
+}
+
+.profile h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile p {
+  margin-bottom: 1rem;
+  color: var(--cinza-claro);
+  cursor: pointer;
+  transition: color var(--transicao-suave);
+}
+
+.profile p:hover {
+  color: var(--verde-menta);
+}
+
+#editar-bio {
+  background-color: var(--verde-escuro);
+  border: none;
+  color: var(--branco);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: background-color var(--transicao-suave);
+}
+
+#editar-bio:hover {
+  background-color: var(--verde-menta);
+  color: var(--fundo);
+}
+
+.sidebar nav a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.6rem 0;
+  display: block;
+  border-radius: 6px;
+  transition: background-color var(--transicao-suave);
+}
+
+.sidebar nav a.ativo,
+.sidebar nav a:hover {
+  background-color: var(--verde-escuro);
+}
+
+.feed {
+  margin-left: 300px;
+  margin-top: 70px;
+  padding: 1rem 2rem;
+  flex-grow: 1;
+}
+
+.galeria-postagens {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  gap: 1.5rem;
+}
+
+.post {
+  background-color: var(--fundo);
+  border: 1px solid var(--verde-escuro);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.post:hover {
+  transform: scale(1.02);
+}
+
+.post img {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid var(--verde-escuro);
+}
+
+.post-content {
+  padding: 1rem;
+}
+
+.post-content h3 {
+  color: var(--verde-menta);
+  margin-bottom: 0.5rem;
+}
+
+.post-content p {
+  color: var(--cinza-claro);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--transicao-suave);
+  z-index: 10000;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--verde-menta);
+}
+
+.modal.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+#fechar-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--verde-menta);
+  cursor: pointer;
+  font-weight: bold;
+  transition: color var(--transicao-suave);
+}
+
+#fechar-modal:hover {
+  color: var(--verde-escuro);
+}
+
+/* Responsividade */
+@media(max-width: 768px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem 0;
+    box-shadow: none;
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .feed {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .galeria-postagens {
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+  }
+}
